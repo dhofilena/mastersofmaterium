@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Masters of Materium</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.9.3/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.9.3/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.9.3/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <link rel="stylesheet" href="./normalize.css">
+    <link href="./bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="./style.css" type="text/css" rel="stylesheet">
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Comforter&family=Lato:wght@400;700&family=Mr+Dafoe&display=swap');
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Lato', sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight:400;
+        line-height: 1.55;
+        font-size: 20px;
+      }
+      section {
+        overflow-x: hidden;
+      }
+      .container {
+        max-width: 900px;
+      }
+      header .container {
+        max-width: 1400px;
+      }
+      .row ol, .row ul {
+        margin-left: 30px;px;
+      }
+      h2, .h2, h3 {
+        font-family: 'Cinzel', serif;
+        font-weight: bold;
+      }
+      h2 span.wt {
+        color: #ffffff;
+        font-family: 'Lato', sans-serif;
+        font-weight: normal;
+        font-size: 18px;
+        text-transform: uppercase;
+        display: block;
+        margin-top: 5px;
+      }
+      .bg-tf {
+        background-image: url("./dao-vision.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .gradient-bg {
+        background-color: rgba(0,0,0,0.8);
+        background-image: -webkit-linear-gradient(top, rgba(90,0,163,0.2), rgba(0,0,0,1));
+        background-image: -moz-linear-gradient(top, rgba(90,0,163,0.2), rgba(0,0,0,1));
+        background-image: -o-linear-gradient(top, rgba(90,0,163,0.2), rgba(0,0,0,1));
+        background-image: linear-gradient(to bottom, rgba(90,0,163,0.2), rgba(0,0,0,1));
+
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+      }
+      .gradient-pl {
+        background-color: rgba(255,217,95,1);
+        background-image: -webkit-linear-gradient(left, rgba(0,0,0,1), rgba(96,0,138,1), rgba(0,0,0,1));
+        background-image: -moz-linear-gradient(left, rgba(0,0,0,1), rgba(96,0,138,1), rgba(0,0,0,1));
+        background-image: -o-linear-gradient(left, rgba(0,0,0,1), rgba(96,0,138,1), rgba(0,0,0,1));
+        background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(96,0,138,1), rgba(0,0,0,1));
+      }
+      .gradient-yw {
+        background-color: rgba(255,217,95,1);
+        background-image: -webkit-linear-gradient(top, rgba(255,192,12,1), rgba(255,217,95,1), rgba(255,192,12,1));
+        background-image: -moz-linear-gradient(top, rgba(255,192,12,1), rgba(255,217,95,1), rgba(255,192,12,1));
+        background-image: -o-linear-gradient(top, rgba(255,192,12,1), rgba(255,217,95,1), rgba(255,192,12,1));
+        background-image: linear-gradient(to bottom, rgba(255,192,12,1), rgba(255,217,95,1), rgba(255,192,12,1));
+      }
+      .pline-bg {
+        background-image: url(./purple-lining.png);
+        background-size: cover;
+        background-position: center bottom;
+        height: 100px;
+        position: relative;
+        z-index: 3;
+        bottom: 0;
+        width: 100%;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+       }
+      .mom-logo {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 900px;
+      }
+      .mom-icon {
+        max-width: 400px;
+      }
+      header {
+        height: 100vh;
+      }
+      .ls-2 {
+        letter-spacing: 2px;
+      }
+      .h2 {
+        font-size: 34px;
+      }
+      a {
+        text-decoration: none;
+      }
+      a.btn-purple:hover {
+        transform: scale(1.02);
+        color: #FFC300;
+        transition: all ease-in 0.1s;
+        background-color: #60008A;
+      }
+      .yw {
+        color: #FFC300;
+      }
+      .pl {
+        color: #60008A;
+      }
+      .yw-line {
+        max-width: 100%;
+        background-blend-mode: screen;
+      }
+      a.btn-purple {
+        background-color: #7200A3;
+        color: #ffffff;
+        border: #60008A;
+        padding: 10px 0;
+        display: flex;
+      }
+      .btn-purple img {
+        height: 30px;
+        margin-right: 20px;
+      }
+      .bull p {
+        background-image: url("./bullets.svg");
+        background-repeat: no-repeat;
+        padding-left: 40px;
+        background-size: 24px;
+        background-position: left 2px;
+        padding-top: 0;
+      }
+      .pbox, .s02-box {
+        border: 2px solid #7200A3;
+        border-radius: 5px;
+        background-color: rgb(114,0,163,0.3);
+        background-color: rgba(114,0,163,0.3);
+        padding: 20px;
+      }
+      .pbox {
+        height: 250px;
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-color: rgb(114,0,163,0.3);
+        background-color: rgba(114,0,163,0.9);
+        font-size: 20px;
+        text-align: center;
+        width: 48%;
+      }
+      .pbox-full {
+        border: 2px solid #7200A3;
+        border-radius: 5px;
+        background-color: #1A0025;
+        padding: 20px;
+      }
+      .mbox {
+        border: 2px solid #e5e5e5;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 20px;
+        color: #000000;
+      }
+      .pbox1 {
+        background-image: url("./adventure.png");
+      }
+      .pbox2 {
+        background-image: url("./economic.png");
+      }
+      .yw-lb {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+      .img-exemplars {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .s01 {
+        background-image: url(./cool-lines.png);
+        background-color: #000000;
+        background-blend-mode: hard-light;
+        background-size: 1000px;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .s01 h2 span {
+        max-width: 500px;
+        display: block;
+        margin: 0 auto;
+      }
+      .s01-content {
+        max-width: 600px;
+        margin: 40px auto 0;
+      }
+      .s04 {
+        background-image: url(./Mirandus-mountains.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .s06 {
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background: #000000;
+        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./MM.png");
+        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./MM.png");
+        background-blend-mode: hard-light;
+        background-size: cover;
+      }
+      .s07 {
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background: #000000;
+        background: linear-gradient(rgba(0,90,150,0.8), rgba(0,0,0,1)), url("./mom-formed.png");
+        background: linear-gradient(rgba(0,90,150,0.8), rgba(0,0,0,1)), url("./mom-formed.png");
+        background-blend-mode: hard-light;
+        background-size: cover;
+      }
+      .s08 {
+        background-color: rgba(225,225,255,1);
+        background-image: -webkit-linear-gradient(top, rgba(0,0,0,1), rgba(40,0,80,0.8), rgba(0,0,0,1));
+        background-image: -moz-linear-gradient(top, rgba(0,0,0,1), rgba(40,0,80,0.8), rgba(0,0,0,1));
+        background-image: -o-linear-gradient(top, rgba(0,0,0,1), rgba(40,0,80,0.8), rgba(0,0,0,1));
+        background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(40,0,80,0.8), rgba(0,0,0,1));
+      }
+      .s09 {
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background: #000000;
+        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./mirandus-footer.png");
+        background: linear-gradient(rgba(0,0,0,1), rgba(40,0,80,0.8)), url("./mirandus-footer.png");
+        background-blend-mode: hard-light;
+        background-size: cover;
+      }
+      .virtuwul {
+        color:#60008A;
+        font-size: 44px;
+        font-family: 'Comforter', cursive;
+      }
+      .grill {
+        color:#60008A;
+        font-size: 44px;
+        font-family: 'Alex Brush', cursive;
+      }
+      .aaelim {
+        color:#60008A;
+        font-size: 44px;
+        font-family: 'Mr Dafoe', cursive;
+      }
+      .socmed-icon-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left: 20px;
+      }
+
+      @media screen and (min-height: 800px) {
+        header {
+          height: auto;
+        }
+        .img-exemplars img {
+          height: 380px;
+          object-fit: contain;
+        }
+      }
+
+      @media screen and (min-width: 2400px) {
+        .mom-logo {
+          max-width: 1200px;
+        }
+        header {
+          height: 62vh!important;
+        }
+        .pline-bg {
+          background-size: auto;
+          background-repeat: no-repeat;
+        }
+        .s01 {
+          height: 440px;
+        }
+        header .mom-icon.mt-0 {
+          margin-top: 50px!important;
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        body {
+          font-size: 16px;
+        }
+        .container {
+          max-width: 500px;
+        }
+        .mom-logo {
+          max-width: 500px;
+          width: 100%;
+        }
+        .s01 {
+          background: none;
+          height: auto;
+        }
+        .s01 h2 {
+          background-image: url(./cool-lines.png);
+          background-color: #000000;
+          background-blend-mode: hard-light;
+          background-size: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          height: 180px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+        }
+        .img-exemplars {
+          flex-direction: column;
+          flex-wrap: wrap;
+          margin: 20px auto;
+          height: 380px;
+        }
+        .img-front {
+          position: absolute;
+          z-index: 1;
+          padding-left: 100px;
+          padding-top: 50px;
+        }
+        .img-back {
+          position: absolute;
+          padding-right: 100px;
+          padding-bottom: 50px;
+        }
+        .pline-bg {
+          height: 100px;
+        }
+        .pbox {
+          width: 100%;
+        }
+        .btn-purple img {
+          display: table;
+          margin: 5px auto;
+        }
+      }
+      @media screen and (max-width: 455px) {
+        .mom-logo {
+          max-width: 320px;
+        }
+        .mom-icon {
+          max-width: 200px;
+        }
+        .h2 {
+          font-size: 22px;
+        }
+        .row {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .img-exemplars img {
+          height: 360px;
+        }
+        .img-front {
+          padding-left: 20px;
+          padding-top: 20px;
+        }
+        .img-back {
+          padding-right: 20px;
+          padding-bottom: 20px;
+        }
+        .s01-content {
+          margin: 0px auto 0;
+        }
+        .pline-bg {
+          height: 60px;
+        }
+        .s01 h2 {
+          background-size: 120%;
+        }
+      }
+    </style>
+
+    <style>
+      nav {
+        width: 100%;
+        position: fixed;
+        z-index: 9;
+      }
+      .menu-wrap {
+        padding: 1px 0;
+      }
+      a.discord-link {
+        margin: 0 5px;
+        display: table;
+      }
+      a.yt-link {
+        margin: 0 5px;
+        display: table;
+      }
+      a.twitter-link {
+        margin: 0 5px;
+        display: table;
+      }
+      .menubar {
+        display: flex;
+        margin-top: 15px;
+        align-items: center;
+        justify-content: center;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .menu {
+        margin: 15px 0 0;
+        display: flex;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        align-items: center;
+      }
+      .menu a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #fff;
+        font-weight: 700;
+        display: inline-flex;
+      }
+      .menu a span {
+        padding: 13.5px 20px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+      }
+      .menu a:hover > span {
+        border: 2px solid #60008A;
+        background-color: #60008A;
+        color: #fff;
+      }
+      .menu a img {
+        width: 30px;
+        background-color: transparent;
+      }
+      a:hover, a:focus, a:active {
+        color: #FFC300;
+      }
+      .menu a:hover > img {
+        background-color: #60008A;
+      }
+      .mob-btn {
+        display: none !important;
+      }
+      returnToPortrait {
+        display: none;
+        position: fixed;
+        z-index: 999999;
+        height: 100vh;
+        width: 100%;
+        background-color: #0a0a0a;
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+      }
+      nav-fullpage {
+        position: absolute;
+        flex-direction: column;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        display: none;
+        background: rgba(0, 0, 17, 0.9);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.4px);
+        -webkit-backdrop-filter: blur(9.4px);
+        border: 1px solid rgba(0, 0, 17, 0.34);
+        color: #fff;
+        justify-content: center;
+      }
+      .menu-float {
+        background: rgba(0, 0, 17, 0.8);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.4px);
+        -webkit-backdrop-filter: blur(9.4px);
+      }
+      .menu-float .menubar {
+        margin-top: 0;
+        padding: 5px 0;
+        transform: scale(0.98);
+      }
+      exit {
+        position: absolute;
+        top: 4.5%;
+        right: 10.5%;
+        height: 40px;
+        width: 40px;
+      }
+      @media screen and (max-width: 991px) {
+        .menubar {
+          max-width: 80%;
+        }
+        .menu a {
+          display: none !important;
+        }
+        a.discord-link {
+          margin: 0px 5px;
+          display: table !important;
+        }
+        a.yt-link {
+          margin: 0px 5px;
+          display: table !important;
+        }
+        a.twitter-link {
+          margin: 0px 5px;
+          display: table !important;
+        }
+        .socmed-icon-menu {
+          margin-left: 0px;
+        }
+
+        a.mob-btn {
+          display: table !important;
+        }
+        nav-fullpage ul {
+          text-align: center;
+          margin-left: 0;
+          padding-left: 0;
+        }
+        nav-fullpage a {
+          text-decoration: none;
+          color: #fff;
+          font-size: 16px;
+          text-transform: uppercase;
+        }
+        .menu {
+          margin-top: 0 !important;
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+
+    </style>
+
+  </head>
+  <body>
+  <nav class="">
+    <div class="menu-wrap">
+      <div class="menubar">
+        <div class="menu">
+          <a href="#structure"><span>Guild Structure</span></a>
+          <a href="#founders"><span>Guild Founders</span></a>
+          <a href="#assets"><span>Guild Assets</span></a>
+          <div class="socmed-icon-menu">
+            <a href="https://discord.gg/bYdmnUsZRg" class="discord-link"><img src="./discord-white.svg"></a>
+            <a href="https://www.youtube.com/channel/UCktLOdPFt0abyzeFe0tLELw" class="yt-link"><img src="./youtube.svg"></a>
+            <a href="https://twitter.com/MMaterium" class="twitter-link"><img src="./twitter.svg"></a>
+          </div>
+          <a class="mob-btn" href="javascript:void(0);" id="mobile_menu_button"><img alt="icon-hamburger" src="https://static-v1.cdn-bio.com/nootopia/icon/icon-hamburger.svg"></a>
+        </div>
+      </div>
+      <nav-fullpage>
+        <ul><a href="#structure" onclick="exitMobileMenu()"><span>Guild Structure</span></a></ul>
+        <ul><a href="#founders" onclick="exitMobileMenu()"><span>Guild Founders</span></a></ul>
+        <ul><a href="#assets" onclick="exitMobileMenu()"><span>Guild Assets</span></a></ul>
+        <exit><img alt="nootopia-exit" src="./exit.svg"></exit>
+      </nav-fullpage>
+    </div>
+  </nav>
+
+  <header class="d-flex flex-column align-items-center justify-content-center bg-tf position-relative">
+    <div class="container">
+      <div class="row hero-content mt-5 pt-2">
+        <h1 class="mx-auto mt-5 d-table">
+          <img src="./mom-logo-full-wide.png" alt="The Masters of Materium" class="mom-logo d-none d-lg-block">
+          <img src="./mom-logo-full.png" alt="The Masters of Materium" class="mom-logo d-block d-lg-none">
+        </h1>
+        <p class="h2 text-center text-uppercase mt-3 mb-5 ls-2">Maximum Medieval <span class="d-block d-lg-inline">Fun and riches</span></p>
+        <img src="./MM_Final 1.png" alt="The Masters of Materium" class="mom-icon mt-0 mx-auto">
+      </div>
+    </div>
+    <div class="gradient-bg"></div>
+    <div class="pline-bg"></div>
+  </header>
+
+  <section class="s01 flex-column">
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center yw"><span>The Goal of the <span class="d-block d-lg-inline">Masters of </span>Materium Guild</span></h2>
+        <div class="s01-content">
+          <p>Our goals are simple:</p>
+          <div class="bull">
+            <p>Become the most profitable* Mirandus guild for all our members.</p>
+            <p class="fw-bold mb-0">Be the “funnest” Mirandus guild.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="./yw-line.png" class="yw-line d-block d-lg-none">
+  </section>
+
+  <section class="s02">
+    <div class="container">
+      <div class="row">
+        <h2 class="yw text-center my-3">Winning both <span class="d-block d-lg-inline">Mirandus Games</span></h2>
+        <div class="s02-box mb-5">
+          <p>There are 2 “games” in Mirandus:</p>
+          <div class="d-flex flex-column flex-lg-row justify-content-around">
+            <div class="pbox pbox1 mb-3 d-flex align-items-center">
+              <p class="mb-0">Players who want to explore, raid, hunt and craft in Mirandus.</p>
+            </div>
+            <div class="pbox pbox2 mb-3 d-flex align-items-center">
+              <p class="mb-0">Asset holders who want to win at the bigger economic game including owners of: deeds, buildings and naval assets.</p>
+            </div>
+          </div>
+          <p>The purpose of the guild is to give you the opportunity to win whichever game you want to play.</p>
+          <p>We believe that no other Guild will be able to compete with us in the economic game.  We feel we have an incredible head start on  the economic dominance of Mirandus. There will be many economic opportunities in Mirandus for exemplars and it’s our goal to give them every possible advantage so they can maximize their Materium and FUN.</p>
+          <a id="assets"></a>
+          <p class="mb-0">Our primary economic focus is controlling FOOD in Mirandus.  We believe we already have a very strong headstart and it will be extremely difficult for any other Guild to catch up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s03 gradient-yw">
+    <div class="container py-5">
+      <div class="row text-black">
+        <h2 class="text-center mb-3 mb-lg-5">M.O.M. Assets</h2>
+        <p>M.O.M. is already the biggest Guild in Mirandus (that we are aware of) when measuring total Mirandus assets and the value of Mirandus assets (excluding Citadels).</p>
+        <a id="structure"></a>
+        <div class="px-3 pt-3">
+          <a class="form-control btn-lg btn-purple d-table text-center" href="https://docs.google.com/spreadsheets/d/1o8sjvRDoLZZraSDRJ_ioG3xG9mon5L_Y42MhY76gX9k/edit#gid=0" target="_blank">Click here for a view of <span class="d-block d-lg-inline">our current asset holdings</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s04 position-relative">
+    <div class="container py-5">
+      <div class="row">
+        <div class="pbox-full">
+          <h2 class="text-center yw my-3 my-lg-5">Structure of the M.O.M. Guild</h2>
+          <p>We are structuring the guild in a hyper-organized manner to maximize efficiency and effectiveness.  Our goal is to give every type of Mirandus player the greatest advantages possible.</p>
+          <div class="bull">
+            <p class="fw-bold">Create a structure that allows everyone the opportunity to potentially maximize their return on their assets as they wish.   Give all members agency and independence while offering significant benefits. </p>
+            <p>Create a Guild that synergizes members’ assets to potentially maximize their returns. </p>
+            <p class="fw-bold">Creates opportunities and unique benefits for smaller teams who want to remain independent while still benefiting from joining a bigger guild. </p>
+            <p>Create every type of specialized team required in Mirandus to maximize productivity in every Mirandus game loop. </p>
+            <p class="fw-bold">Create elite raid teams for the toughest, most rewarding missions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="./yellow-linebreak.png" class="yw-lb d-lg-none">
+  </section>
+
+  <section class="s05 gradient-pl">
+    <div class="container py-5">
+      <div class="row mb-3">
+        <div class="pbox-full">
+          <h2 class="text-center yw py-3">The Dynasty Council: <span class="wt">for Mirandus deed owners</span></h2>
+          <div class="bull">
+            <p>Anyone who owns any deed  (except the Homestead) including naval docks and joins M.O.M. will automatically be a member of the Dynasty Council.</p>
+            <p class="fw-bold">We have special economic opportunities* for anyone who owns a Farming Hamlet, Ranching Hamlet or Village Of The Farmer.</p>
+            <p>Get access to our optimized strategies that may maximize your Materium gains.</p>
+            <p class="fw-bold">We can offer deed owners significant advantages through economies of scale, hyper efficiency, access to top level buildings, optimized transport routes, access to labor and other economic edges.</p>
+            <p>Ability to run your deed for you (if you want to be hands off):
+            <ul>
+              <li class="fw-bold">Ability to fill building slots that you don’t want to fill.</li>
+              <li>Ability to get exemplars to work on your deeds and buildings.</li>
+            </ul>
+            </p>
+            <p class="mb-0">Access to a mass base of exemplars to purchase their goods and services from you.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="pbox-full">
+          <h2 class="text-center yw py-3">M.O.M. Shopkeepers: <span class="wt">for Anyone who owns a BUILDING WITHOUT A DEED</span></h2>
+          <div class="bull">
+            <p class="fw-bold">Find spots to place your buildings. We can’t make any guarantees, but we do have some Deed owners who are looking for building owners.</p>
+            <p>Ability to find exemplars to work in your buildings.</p>
+            <p class="fw-bold">Maximize use of all buildings by having groups of exemplars working to maximize its utility and profits.</p>
+            <p>
+            <ol>
+              <li>Create profitable* mining company</li>
+              <li class="fw-bold">Create profitable* weapon crafters</li>
+              <li>Create profitable* armor crafters</li>
+              <li class="fw-bold">Create profitable* potion creators</li>
+              <li>Create profitable* farming company</li>
+              <li class="fw-bold">Create profitable* stonecrafting company</li>
+              <li>Create profitable* woodshop company</li>
+              <li class="fw-bold">Create profitable* map creation team</li>
+              <li>Create profitable* sea taxi business</li>
+            </ol>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="pbox-full">
+          <h2 class="text-center yw py-3">The M.O.M. Armada: <span class="wt">for Naval Asset Holders</span></h2>
+          <div class="bull">
+            <p>Keep your boats (Picard, Crayer, Hoy, Cog, Carrack, Caravel) busy with:
+            <ul>
+              <li class="fw-bold">Steady supply of exemplars going on adventures</li>
+              <li>Steady supply of goods that need to be moved</li>
+            </ul>
+            </p>
+            <p>Find boat owners to fill your docks, quay, wharfs and piers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="pbox-full">
+          <h2 class="text-center yw py-3">The M.O.M. Clans: <span class="wt">for Existing Gaming Teams</span></h2>
+          <div class="bull">
+            <p>Anyone who owns any exemplar and joins M.O.M. may become an Exalted Exemplar</p>
+            <p>We are going to create hyper organized Exemplar Clans for:
+              <ul>
+                <li class="fw-bold">Crafters of all types: alchemists, weavers, stronghands, goldsmiths, greencloaks</li>
+                <li>Nautical explorers: seafarers & cartographers</li>
+                <li class="fw-bold">Miners: all dwarves</li>
+                <li>Farmers & Ranchers: true providers</li>
+                <li class="fw-bold">Raiders & Hunters: all elves, orcs, halfings (except Proudhearth)</li>
+              </ul>
+            </p>
+            <p>Advantages for M.O.M.’s Exalted Exemplars:
+            <ul>
+              <li>Discounts on food and sleep (no one will be able to compete with us on food production)</li>
+              <li class="fw-bold">Ability to be a part of high level raiding and hunting teams</li>
+              <li>Access to the BEST food (we own all of the top food production buildings)</li>
+              <li class="fw-bold">Access and discounts on the BEST potions (we own several large potion shops)</li>
+              <li>Access to the BEST arrows and archery gear (we own several of the  top archery shops)</li>
+              <li class="fw-bold">Be able to join various hunting/raiding teams (or build your own)</li>
+              <li>Discounts on weapons & armor</li>
+              <li class="fw-bold">Ability to sell: rare NFTs, recipes and herbs</li>
+              <li>Ability to sell  valuable information</li>
+              <li class="fw-bold">Ability to get scholars to use your unused exemplars.  We already have a scholar acquisition system in place.</li>
+              <li>Potentially get access to valuable “keys” (no guarantees, but we will rewards top players with certain privileges)</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="pbox-full">
+          <h2 class="text-center yw py-3">The M.O.M.'s Journeymen: <span class="wt">for Anyone who wants to <span class="d-block d-lg-inline">be a scholar</span></h2>
+          <div class="bull">
+            <p class="fw-bold">This is for anyone  who does NOT own any exemplars, but wants to play Mirandus.</p>
+            <p>We will have PLENTY of opportunities for players who don’t own ANY assets but want to play Mirandus and maximize their opportunities*.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s06">
+    <div class="container py-5">
+      <div class="row">
+        <h2 class="text-center yw py-3">M.O.M.'s DAO Vision</h2>
+        <p>We love the idea of a DAO.   We want to give YOU a voice.  Our plan is to have everyone in the Guild have votes and the “volume of your voice” will first be based on the value of the assets you have.   We have already built a highly developed point system for all Mirandus assets to attempt to accurately assess the value of each player’s Mirandus NFTs.</p>
+        <p>We will be co-creating the DAO vision with you and other members of M.O.M. over the next few months.</p>
+        <a id="founders"></a>
+        <div class="px-3">
+          <a class="form-control btn-lg d-table text-center btn-purple" href="https://discord.gg/bYdmnUsZRg" target="_blank"><img src="./discord-white.svg"> Make sure to join our Discord to join in the conversation.</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s07">
+    <div class="container py-5">
+      <div class="row">
+        <h2 class="text-center yw py-3">How the Masters of Materium Formed</h2>
+        <div class="pbox-full">
+          <p>Two of the co-founders, Grill and Aaelim (along with a few other M.O.M. Dynasty Council), have been gaming together since 2007.  They were one of the most dominant teams in WOW.  They have been accumulating Mirandus assets (ArchDuke, Duke, Marquess, Villages, multiple Hamlets and many other significant NFTs) since Gala announced Mirandus.</p>
+          <p>Virtuwul started an aggressive Mirandus asset buying spree in the beginning of 2022 (including Duke, Marquess, Caravel, 2 Villages and multiple Hamlets).  Aaelim and Grill were tracking his purchases and decided to reach out to see if there could be some opportunities to team up.</p>
+          <p>After a few weeks of chatting and conversations, Virtuwul, Grill and Morrow (Dynasty Council member) decided to meet at Galaverse 2 in Malta.  They had a great time, quickly bonded and officially agreed to create the M.O.M. Guild a few weeks later.</p>
+          <p>Now we want YOU to join us in co-creating the story of M.O.M’s ascent in the world of Mirandus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s08 position-relative">
+    <img src="./yellow-linebreak.png" class="yw-lb top-0 position-absolute">
+    <div class="container">
+      <div class="row">
+        <img src="./MM_Final 1.png" alt="The Masters of Materium" class="mom-icon mt-0 mx-auto" style="max-width: 200px">
+        <h2 class="text-center yw py-3">The M.O.M. Founders</h2>
+        <div class="mbox mb-3">
+          <h3 class="pl fw-bold text-center">Virtuwul: CEO/CMO</h3>
+          <h5 class="fw-normal text-muted text-center mb-3">MAIN EXEMPLARS: <span class="d-block d-lg-inline">Darksun Elf & Allsight Elf</h5>
+          <div class="img-exemplars position-relative">
+            <img src="./darksun.png" class="img-front">
+            <img src="./all-sight.png" class="img-back">
+          </div>
+          <div class="clearfix"></div>
+          <p>I come from a family that values gaming of all kinds.  My father taught me how to play chess (I played competitive chess as a kid).  My grand-father taught me how to play poker at the age of 8 (I still play poker and have won decent sized tournaments).  I once won 52 Monopoly games in a row with my cousins due to the fact I was able to optimize my strategies and they weren’t.</p>
+          <p>I started video gaming at the age of 4 years.  My parents bought me a Vectrex console and I became instantly hooked.  I loved the learning curve and the challenge.</p>
+          <p>Throughout the years, my parents gifted me all of the consoles Nintendo, Sega Genesis and PCs.  Playing video games was my main obsession until I was 16.</p>
+          <p>In my late teens, my passion for gaming faded and was replaced with a passion for a MUCH bigger game: business.  I started my first real company when I was 19 years old. I started building businesses online in 2002 and haven’t looked back.</p>
+          <p>Since that time, I’ve built 14 profitable companies in multiple industries.  My companies have sold 9 figures worth of products and services.  Business wise, my current main company is in the top 300 fastest growing companies in America in 2022 on Inc’s 5000 list.</p>
+          <p>I heard about Bitcoin mining in 2011 and decided against doing that but I was intrigued. I kept monitoring BTC and decided to take the plunge in mid 2013 before the big parabolic run at the end of the year.   Since that time I’ve invested in hundreds of projects. I’ve had my fair share of both big wins and losses.  But overall, it’s been a great ride.</p>
+          <p>Thanks to COVID, I got back into video gaming.  A close friend gave me his PS4 for my birthday and got me into Call Of Duty Warzone.  I had never played a FPS in my life and I instantly fell in love with the camaraderie of playing with friends and the hardcore skill gap.</p>
+          <p>During that time, I started paying attention to the P2E (play to earn) projects.  I instantly saw that this is the inevitable evolution of games.  It got me excited to play a BIGGER, HIGHER STAKE game: winning in real virtual economies.</p>
+          <p>I got into the GALA ecosystem and saw Mirandus.  Frankly, I wasn’t sold right away.  The low-fi graphics turned me off, but when I heard Michael McCarthy (the lead game designer) describe his vision I got sucked in. I’ve never been more excited to go deep into a gaming world like I am for Mirandus.</p>
+          <p>Mirandus is my dream game:  a dangerous challenging world with real risks and HIGH stakes.  I’m excited for opportunity to work together as a team and co-create the #1 Guild in this fascinating virtual universe.</p>
+          <p>My main strengths are: vision, strategy, marketing and optimization.  Those are my key roles in M.O.M. I’m excited to apply all of my business and leadership skills to help YOU make more money and have more fun in Mirandus.</p>
+          <p class="virtuwul">Virtuwul</p>
+          <p>P.S. Where does the name Virtuwul come from?  I was really enthralled with the story of Beowulf in high school and I needed a cool online name so I combined the “Virtue of BeoWULf”.  Plus it had a cool second meaning as an unusual way to write “virtual” (reality), which I’ve always been fascinated with.</p>
+        </div>
+        <div class="mbox mb-3">
+          <h3 class="pl fw-bold text-center">GRILL, COO of M.O.M. <span class="d-block d-lg-inline">AKA The Raid Master</h3>
+          <h5 class="fw-normal text-muted text-center mb-3">MAIN EXEMPLARS:<span class="d-block d-lg-inline"> Darksun Elf/Earthlight Elf</h5>
+          <div class="img-exemplars position-relative">
+            <img src="./Earthlight.png" class="img-front">
+            <img src="./darksun.png" class="img-back">
+          </div>
+          <p>My gaming career started at an early age. I’ll never forget going downstairs on my 7th birthday. I walked into the kitchen and on the table was a NES system with my sister playing Duck Hunt. I was blown away and instantly hooked.</p>
+          <p>Not long after, my parents got our first PC, an IBM PS/2. Between those beautiful pieces of 80s machinery, my love for gaming blossomed into what it is today. Through the years I played with many consoles and while I loved and spent many hours playing console games, there was always something about PCs games that had that extra bit of magic to them.</p>
+          <p>Some really memorable games for me are: the old Star Wars flight and combat sim games X-Wing and TIE Fighter series, the original Sim City and Sim City 2, a very obscure text based MMO or MUD called Gemstone 3/4, Oregon Trail (yes I too died of dysentery many times). And of course Blizzard Games captured my heart and mind with: Warcraft 1, 2, 3 & Diablo 1 and what’s in many ways still my favorite game of all time Diablo 2. Hundreds to thousands of hours were sunk into these titles.</p>
+          <p>Eventually I took a break from PC gaming and went back to consoles with PS1, 2, 3 and Xbox 1 and 2. This continued until about my mid 20s when I decided to build a PC. This was soon followed by a life changing decision, I watched an episode of South Park. Not just any episode but the World of Warcraft one. While the episode is incredibly funny and on point I was amazed that such a game existed.</p>
+          <p>I had heard of WoW but never really looked into it.  But once I was exposed there was no going back. I had just discovered the game of my dreams.</p>
+          <p>During this time I connected with Aaelim (our Master Of Coin) and a few other key members of M.O.M.  Together, we had a blast and we did really well. Without going into the expanded and finer details of my entire WoW career, I was soon leading a guild named “UNREST” (which is also the name for M.O.M.’s AAA Raid Team) to a top 200 position worldwide within just 6 months and held that spot for the entirety of the Burning Crusade expansion.</p>
+          <p>The guild unfortunately wasn’t able to survive the downtime between BC and WOTLK so I took my services to the next top guild on the server and within a month they were top 200 as well and again held it to the expansion's end.</p>
+          <p>After 4 years of leading server progression I took my leave from WoW. I’ve since played many games with high levels of success. Other MMOs include Aion, Tera, FF14. I’ve played a significant amount of LoL as well (30k+ games overall), with ELO peaking at Diamond in multiple seasons.</p>
+          <p>My venture into crypto is a relatively new one, starting in early 2021. It’s been a journey of great success thanks to some good mentoring from Aaelim, luck and timing. Starting with purchasing a mere $500 worth of Bitcoin in late Feb 2021 it wasn’t long before I dove in head first HARD, FAST and DEEP(one of our core principles at M.O.M.).</p>
+          <p>My focus quickly shifted to Gala and Gala NFTs.  My luck struck gold in January 2022.  Through a series of aggressive reinvesting, flipping and trades I landed my crown jewel, a Town of the ArchDuke which is the best possible deed in Mirandus besides the Citadels.</p>
+          <p>I truly believe that Mirandus is the ULTIMATE GAME.  It combines elements of all my favorite games with a REAL economy.  I haven’t been this excited for a game in years.  I’m ready to devote the next decade of my life to Mirandus and M.O.M.</p>
+          <p>My strengths are organizing teams.  I’ve managed teams of 40 people in a family business in real life and over 200 members in WoW.</p>
+          <p>That’s why my title is COO (chief operating officer) and my role is to help organize, train and structure various teams in Mirandus for maximum effectiveness and efficiency.  I feel like my entire life has groomed me for my career and being a full time Mirandus player and team leader.</p>
+          <p>Our original WoW team is all here and with Virtuwul’s leadership, Aaelim’s financial strategies, our combined assets and with YOU, we will become the most dominant Guild in Mirandus.  It’s been quite the wild ride so far and I’m looking forward to what the future brings.</p>
+          <p>I look forward to helping YOU maximize your fun and earnings in Mirandus.  Together, we will have many legendary raids that you will be telling your children and grand-children about.</p>
+          <p class="grill">Grill</p>
+          <p>P.S. If anyone is wondering where “Grill” comes from, it’s actually short for Grillox which was the main character and hero from short stories written as a kid. It’s the online avatar and name I’ve used through my entire gaming career. There have been a few other names that I’ve used over the years but this is how I’m known to everyone in the online world</p>
+        </div>
+        <div class="mbox mb-3">
+          <h3 class="pl fw-bold text-center">AAELIM: CFO, <span class="d-block d-lg-inline">The Master Of Coin</h3>
+          <h5 class="fw-normal text-muted text-center mb-3">MAIN EXEMPLARS: <span class="d-block d-lg-inline">Proudhearth Halfling/Human True Provider</h5>
+          <div class="img-exemplars position-relative">
+            <img src="./proudhearths.png" class="img-front">
+            <img src="./trueproviders.png" class="img-back">
+          </div>
+          <p>I started playing video games in the 80s. I’ve played every mainstream console system since that time with games from every genre. However, my passion has been RPG and strategy games.  I love out-strategizing my competition and go 100% (HARD, FAST AND DEEP) into any game that I enjoy.</p>
+          <p>For online games my first MMORPG was The 4th Coming in 97’ which I played for years and that was the point where I shifted primarily to PC games. </p>
+          <p>I have maximum level characters in most MMORPGs. The majority of my time has been in World of Warcraft which I played off and on since vanilla with Grill and other members of M.O.M. </p>
+          <p>I last played WoW in 2020 at which time I was the richest WoW player on a single server, with over 800 million gold. At the peak I was earning just over 20 million net gold per day, which to put in perspective was multiple times higher than the 17,000 players across the connected realms combined.</p>
+          <p>There were a couple slightly richer players in WoW, but those players have assets across many different servers which is a far easier task to accomplish given that a server only has so much gold on it.</p>
+          <p>As far as crypto goes, I was one of the earliest to enter the crypto space, mining my first bitcoin block in November of 2009. I've mined SHA-256, Scrypt, EtHash, and Equihash in that order with some overlap. I started regularly doing crypto arbitrage by 2015 up until early 2021, at which time I switched my main focus to NFT gaming.  NFT gaming is the intersection of my two biggest passions: gaming and finances.</p>
+          <p>I live solely on crypto, to the point of not holding funds within the traditional banking system since 2013</p>
+          <p>My first success with NFT gaming was with Alien Worlds, then I moved onto other Wax games. I started to buy into other crypto gaming projects by March 2021, with Gala NFTs being most of my purchases. I have assets in most Gala games and multiple other non-gala or Wax games including but not limited to Synergy Land, Galaxy of Lemuria, and Star Atlas.</p>
+          <p>Mirandus is THE GAME and M.O.M. is THE GUILD.  I don’t think you will find another Guild with our assets, our team, our strengths and our strategies.  If you want to join a winning team, stop looking cause you’ve found it.</p>
+          <p>My strengths are maximizing in-game advantages and optimizing economic strategies.  That’s why my title is CFO (chief financial officer) AKA “The Master Of Coin”.  My role is to create optimized financial strategies for M.O.M. and my goal is to help YOU maximize your returns inside of Mirandus.</p>
+          <p>I believe Virtuwul and I have already created what we think is the most sophisticated economic model for Mirandus outside of the Mirandus team.  We have already created several sophisticated strategies to maximize our edges in Mirandus.</p>
+          <p>One of our core principles is to stack every possible edge.  Hopefully this doesn’t come off as hubris, but I believe we are already 100 steps ahead of the average Mirandus player and we just plan on widening that lead when the game starts.</p>
+          <p class="aaelim">Aaelim</p>
+          <p>P.S. I'm a hardcore gamer to the point that my character name Aaelim was written with 2 A's because groupwide achievements are usually sorted alphabetically, making a name with AA virtually always the first to acquire that title/reward. I even named my son Aaelim after my gaming character. In WoW I went by Spikster, but every other game it is Aaelim.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s09">
+    <div class="container py-5">
+      <div class="row">
+        <div class="px-3">
+          <a class="form-control btn-lg d-table text-center btn-purple" href="https://discord.gg/bYdmnUsZRg" target="_blank"><img src="./discord-white.svg"> JOIN OUR DISCORD TO <span class="d-block d-lg-inline">BECOME A MEMBER OF M.O.M’s COMMUNITY</a>
+        </div>
+        <h1 class="mx-auto mt-5 d-table">
+          <span class="text-center d-block text-uppercase mb-3">Welcome to the</span>
+          <img src="./mom-logo-full-wide.png" alt="The Masters of Materium" class="mom-logo d-none d-lg-block">
+          <img src="./mom-logo-full.png" alt="The Masters of Materium" class="mom-logo d-block d-lg-none mb-3">
+        </h1>
+        <div class="fbox">
+          <p>* M.O.M. makes no promises or guarantees for any returns on investment.  All mentions of “profits”, “profitable”, “returns”, “economic opportunity”, “riches”, “ROI” are potentials and possibilities that may or may not be actualized based on your own efforts, the success of Mirandus and the success of M.O.M..  There are many risks involved in the project of Mirandus including the game never launching, the game failing and numerous other risks.  M.O.M. has the same risks as any other business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    const mobile_menu_btn = document.getElementById("mobile_menu_button");
+    const nav_fullpage = document.getElementsByTagName("nav-fullpage");
+    const exit_MobileMenu_btn = document.getElementsByTagName("exit")[0];
+
+    mobile_menu_btn.addEventListener("click", toggleMobileMenu, false);
+    exit_MobileMenu_btn.addEventListener("click", exitMobileMenu, false);
+
+    function toggleMobileMenu(){
+      nav_fullpage[0].style.display = "flex";
+    }
+    function exitMobileMenu(){
+      nav_fullpage[0].style.display = "none";
+    }
+
+    const nav = document.getElementsByTagName("nav")[0];
+    const promo_nav = document.querySelector(".promo-strip");
+
+    let win = window;
+    let winH = 20;   // Get the window height.
+
+    win.addEventListener("scroll", function(){
+      if (win.scrollY > winH ) {
+        nav.classList.add("menu-float");
+        promo_nav.style.opacity = 0;
+        promo_nav.style.height = "0px";
+
+      } else {
+        nav.classList.remove("menu-float");
+        promo_nav.style.opacity = 1;
+        promo_nav.style.height = "auto";
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+      var scrollpos = sessionStorage.getItem('scrollpos');
+      if (scrollpos > 0) {
+        nav.classList.add("menu-float");
+        promo_nav.style.opacity = 0;
+        promo_nav.style.height = "0px";
+      } else {
+        nav.classList.remove("menu-float");
+        promo_nav.style.opacity = 1;
+        promo_nav.style.height = "auto";
+      }
+    });
+
+    window.addEventListener("beforeunload", function (e) {
+      sessionStorage.setItem('scrollpos', window.scrollY);
+    });
+
+    // Use portrait on mobile device
+    function isLandscape() {
+      return (window.orientation === 90 || window.orientation === -90);
+    }
+    win.addEventListener("orientationchange", function(){
+      const ua = navigator.userAgent;
+      if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+        if(isLandscape()){
+          document.querySelector("returnToPortrait").style.display = "flex";
+        }else{
+          document.querySelector("returnToPortrait").style.display = "none";
+        }
+      }
+    });
+  </script>
+
+  <!--
+    THINGS TO ADD ONES WE ARE SET!!!!!
+  -->
+
+  <!-- <p id="load">Firebase SDK Loading&hellip;</p> -->
+
+  <script src="./bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loadEl = document.querySelector('#load');
+      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+      // // The Firebase SDK is initialized and available here!
+      //
+      // firebase.auth().onAuthStateChanged(user => { });
+      // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+      // firebase.firestore().doc('/foo/bar').get().then(() => { });
+      // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+      // firebase.messaging().requestPermission().then(() => { });
+      // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+      // firebase.analytics(); // call to activate
+      // firebase.analytics().logEvent('tutorial_completed');
+      // firebase.performance(); // call to activate
+      //
+      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+      try {
+        let app = firebase.app();
+        let features = [
+          'auth',
+          'database',
+          'firestore',
+          'functions',
+          'messaging',
+          'storage',
+          'analytics',
+          'remoteConfig',
+          'performance',
+        ].filter(feature => typeof app[feature] === 'function');
+        loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+      } catch (e) {
+        console.error(e);
+        loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+      }
+    });
+  </script>
+</body>
+</html>
