@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F65Y0J8SZP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-F65Y0J8SZP');
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Masters of Materium</title>
 
-    <link rel="icon" type="image/x-icon" href="./favicon.png">
-
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/9.9.3/firebase-app-compat.js"></script>
-    
-    <!-- include only the Firebase features as you need 
+    <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/9.9.3/firebase-auth-compat.js"></script>
     <script defer src="/__/firebase/9.9.3/firebase-database-compat.js"></script>
     <script defer src="/__/firebase/9.9.3/firebase-firestore-compat.js"></script>
@@ -29,6 +17,7 @@
     <script defer src="/__/firebase/9.9.3/firebase-analytics-compat.js"></script>
     <script defer src="/__/firebase/9.9.3/firebase-remote-config-compat.js"></script>
     <script defer src="/__/firebase/9.9.3/firebase-performance-compat.js"></script>
+    <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
@@ -81,7 +70,7 @@
         margin-top: 5px;
       }
       .bg-tf {
-        background-image: url("./dao-vision.jpg");
+        background-image: url("./dao-vision.png");
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -212,10 +201,10 @@
         color: #000000;
       }
       .pbox1 {
-        background-image: url("./adventure.jpg");
+        background-image: url("./adventure.png");
       }
       .pbox2 {
-        background-image: url("./economic.jpg");
+        background-image: url("./economic.png");
       }
       .yw-lb {
         display: flex;
@@ -228,7 +217,7 @@
         align-items: center;
       }
       .s01 {
-        background-image: url(./cool-lines.jpg);
+        background-image: url(./cool-lines.png);
         background-color: #000000;
         background-blend-mode: hard-light;
         background-size: 1000px;
@@ -249,7 +238,7 @@
         margin: 40px auto 0;
       }
       .s04 {
-        background-image: url(./Mirandus-mountains.jpg);
+        background-image: url(./Mirandus-mountains.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -258,8 +247,8 @@
         background-position: center bottom;
         background-repeat: no-repeat;
         background: #000000;
-        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./MM.jpg");
-        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./MM.jpg");
+        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./MM.png");
+        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./MM.png");
         background-blend-mode: hard-light;
         background-size: cover;
       }
@@ -267,8 +256,8 @@
         background-position: center bottom;
         background-repeat: no-repeat;
         background: #000000;
-        background: linear-gradient(rgba(0,90,150,0.8), rgba(0,0,0,1)), url("./mom-formed.jpg");
-        background: linear-gradient(rgba(0,90,150,0.8), rgba(0,0,0,1)), url("./mom-formed.jpg");
+        background: linear-gradient(rgba(0,90,150,0.8), rgba(0,0,0,1)), url("./mom-formed.png");
+        background: linear-gradient(rgba(0,90,150,0.8), rgba(0,0,0,1)), url("./mom-formed.png");
         background-blend-mode: hard-light;
         background-size: cover;
       }
@@ -283,8 +272,8 @@
         background-position: center bottom;
         background-repeat: no-repeat;
         background: #000000;
-        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./mirandus-footer.jpg");
-        background: linear-gradient(rgba(0,0,0,1), rgba(40,0,80,0.8)), url("./mirandus-footer.jpg");
+        background: linear-gradient(rgba(90,10,0,0.5), rgba(40,0,80,0.8)), url("./mirandus-footer.png");
+        background: linear-gradient(rgba(0,0,0,1), rgba(40,0,80,0.8)), url("./mirandus-footer.png");
         background-blend-mode: hard-light;
         background-size: cover;
       }
@@ -355,7 +344,7 @@
           height: auto;
         }
         .s01 h2 {
-          background-image: url(./cool-lines.jpg);
+          background-image: url(./cool-lines.png);
           background-color: #000000;
           background-blend-mode: hard-light;
           background-size: 100%;
@@ -644,7 +633,7 @@
         </div>
       </div>
     </div>
-    <img src="./yw-line.png" class="yw-line d-block d-lg-none" loading="lazy">
+    <img src="./yw-line.png" class="yw-line d-block d-lg-none">
   </section>
 
   <section class="s02">
@@ -699,7 +688,7 @@
         </div>
       </div>
     </div>
-    <img src="./yellow-linebreak.png" class="yw-lb d-lg-none" loading="lazy">
+    <img src="./yellow-linebreak.png" class="yw-lb d-lg-none">
   </section>
 
   <section class="s05 gradient-pl">
@@ -815,7 +804,7 @@
         <p>We will be co-creating the DAO vision with you and other members of M.O.M. over the next few months.</p>
         <a id="founders"></a>
         <div class="px-3">
-          <a class="form-control btn-lg d-table text-center btn-purple" href="https://discord.gg/bYdmnUsZRg" target="_blank"><img src="./discord-white.svg" loading="lazy"> Make sure to join our Discord to join in the conversation.</a>
+          <a class="form-control btn-lg d-table text-center btn-purple" href="https://discord.gg/bYdmnUsZRg" target="_blank"><img src="./discord-white.svg"> Make sure to join our Discord to join in the conversation.</a>
         </div>
       </div>
     </div>
@@ -836,17 +825,17 @@
   </section>
 
   <section class="s08 position-relative">
-    <img src="./yellow-linebreak.png" class="yw-lb top-0 position-absolute" loading="lazy">
+    <img src="./yellow-linebreak.png" class="yw-lb top-0 position-absolute">
     <div class="container">
       <div class="row">
-        <img src="./MM_Final 1.png" alt="The Masters of Materium" class="mom-icon mt-0 mx-auto" style="max-width: 200px" loading="lazy">
+        <img src="./MM_Final 1.png" alt="The Masters of Materium" class="mom-icon mt-0 mx-auto" style="max-width: 200px">
         <h2 class="text-center yw py-3">The M.O.M. Founders</h2>
         <div class="mbox mb-3">
           <h3 class="pl fw-bold text-center">Virtuwul: CEO/CMO</h3>
           <h5 class="fw-normal text-muted text-center mb-3">MAIN EXEMPLARS: <span class="d-block d-lg-inline">Darksun Elf & Allsight Elf</h5>
           <div class="img-exemplars position-relative">
-            <img src="./darksun.jpg" class="img-front" loading="lazy">
-            <img src="./all-sight.jpg" class="img-back" loading="lazy">
+            <img src="./darksun.png" class="img-front">
+            <img src="./all-sight.png" class="img-back">
           </div>
           <div class="clearfix"></div>
           <p>I come from a family that values gaming of all kinds.  My father taught me how to play chess (I played competitive chess as a kid).  My grand-father taught me how to play poker at the age of 8 (I still play poker and have won decent sized tournaments).  I once won 52 Monopoly games in a row with my cousins due to the fact I was able to optimize my strategies and they weren’t.</p>
@@ -867,8 +856,8 @@
           <h3 class="pl fw-bold text-center">GRILL, COO of M.O.M. <span class="d-block d-lg-inline">AKA The Raid Master</h3>
           <h5 class="fw-normal text-muted text-center mb-3">MAIN EXEMPLARS:<span class="d-block d-lg-inline"> Darksun Elf/Earthlight Elf</h5>
           <div class="img-exemplars position-relative">
-            <img src="./Earthlight.jpg" class="img-front" loading="lazy">
-            <img src="./darksun.jpg" class="img-back" loading="lazy">
+            <img src="./Earthlight.png" class="img-front">
+            <img src="./darksun.png" class="img-back">
           </div>
           <p>My gaming career started at an early age. I’ll never forget going downstairs on my 7th birthday. I walked into the kitchen and on the table was a NES system with my sister playing Duck Hunt. I was blown away and instantly hooked.</p>
           <p>Not long after, my parents got our first PC, an IBM PS/2. Between those beautiful pieces of 80s machinery, my love for gaming blossomed into what it is today. Through the years I played with many consoles and while I loved and spent many hours playing console games, there was always something about PCs games that had that extra bit of magic to them.</p>
@@ -892,8 +881,8 @@
           <h3 class="pl fw-bold text-center">AAELIM: CFO, <span class="d-block d-lg-inline">The Master Of Coin</h3>
           <h5 class="fw-normal text-muted text-center mb-3">MAIN EXEMPLARS: <span class="d-block d-lg-inline">Proudhearth Halfling/Human True Provider</h5>
           <div class="img-exemplars position-relative">
-            <img src="./proudhearths.jpg" class="img-front" loading="lazy">
-            <img src="./trueproviders.jpg" class="img-back" loading="lazy">
+            <img src="./proudhearths.png" class="img-front">
+            <img src="./trueproviders.png" class="img-back">
           </div>
           <p>I started playing video games in the 80s. I’ve played every mainstream console system since that time with games from every genre. However, my passion has been RPG and strategy games.  I love out-strategizing my competition and go 100% (HARD, FAST AND DEEP) into any game that I enjoy.</p>
           <p>For online games my first MMORPG was The 4th Coming in 97’ which I played for years and that was the point where I shifted primarily to PC games. </p>
@@ -918,12 +907,12 @@
     <div class="container py-5">
       <div class="row">
         <div class="px-3">
-          <a class="form-control btn-lg d-table text-center btn-purple" href="https://discord.gg/bYdmnUsZRg" target="_blank"><img src="./discord-white.svg" loading="lazy"> JOIN OUR DISCORD TO <span class="d-block d-lg-inline">BECOME A MEMBER OF M.O.M’s COMMUNITY</a>
+          <a class="form-control btn-lg d-table text-center btn-purple" href="https://discord.gg/bYdmnUsZRg" target="_blank"><img src="./discord-white.svg"> JOIN OUR DISCORD TO <span class="d-block d-lg-inline">BECOME A MEMBER OF M.O.M’s COMMUNITY</a>
         </div>
         <h1 class="mx-auto mt-5 d-table">
           <span class="text-center d-block text-uppercase mb-3">Welcome to the</span>
-          <img src="./mom-logo-full-wide.png" alt="The Masters of Materium" class="mom-logo d-none d-lg-block" loading="lazy">
-          <img src="./mom-logo-full.png" alt="The Masters of Materium" class="mom-logo d-block d-lg-none mb-3" loading="lazy">
+          <img src="./mom-logo-full-wide.png" alt="The Masters of Materium" class="mom-logo d-none d-lg-block">
+          <img src="./mom-logo-full.png" alt="The Masters of Materium" class="mom-logo d-block d-lg-none mb-3">
         </h1>
         <div class="fbox">
           <p>* M.O.M. makes no promises or guarantees for any returns on investment.  All mentions of “profits”, “profitable”, “returns”, “economic opportunity”, “riches”, “ROI” are potentials and possibilities that may or may not be actualized based on your own efforts, the success of Mirandus and the success of M.O.M..  There are many risks involved in the project of Mirandus including the game never launching, the game failing and numerous other risks.  M.O.M. has the same risks as any other business.</p>
@@ -948,7 +937,7 @@
     }
 
     const nav = document.getElementsByTagName("nav")[0];
-    /* const promo_nav = document.querySelector(".promo-strip"); */
+    const promo_nav = document.querySelector(".promo-strip");
 
     let win = window;
     let winH = 20;   // Get the window height.
@@ -956,17 +945,13 @@
     win.addEventListener("scroll", function(){
       if (win.scrollY > winH ) {
         nav.classList.add("menu-float");
-        /*
         promo_nav.style.opacity = 0;
         promo_nav.style.height = "0px";
-        */
 
       } else {
         nav.classList.remove("menu-float");
-        /*
         promo_nav.style.opacity = 1;
         promo_nav.style.height = "auto";
-        */
       }
     });
 
@@ -974,16 +959,12 @@
       var scrollpos = sessionStorage.getItem('scrollpos');
       if (scrollpos > 0) {
         nav.classList.add("menu-float");
-        /*
         promo_nav.style.opacity = 0;
         promo_nav.style.height = "0px";
-        */
       } else {
         nav.classList.remove("menu-float");
-        /*
         promo_nav.style.opacity = 1;
         promo_nav.style.height = "auto";
-        */
       }
     });
 
